@@ -1,0 +1,7 @@
+{
+  "exitCode": 0,
+  "timedOut": false,
+  "at": "2026-10-29T16:38:36.734Z",
+  "command": "node scripts/codex-smoke.mjs",
+  "configurationScope": "ephemeral --ignore-user-config -c; user config unchanged"
+}

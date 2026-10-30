@@ -1,0 +1,1080 @@
+{
+  "schemaVersion": "1",
+  "finalHot": true,
+  "createdAt": "2026-10-29T17:46:31.466Z",
+  "quick": false,
+  "samplePolicy": {
+    "count": 5,
+    "percentiles": "nearest-rank; with five samples p95 is the maximum, not a robust tail estimate",
+    "normalRuns": "No CPU/heap profiler and measurePhases disabled. One unmeasured JIT warm-up precedes hot-engine samples; pipeline samples follow hot runs.",
+    "io": "Buffered filesystem I/O, no fsync and no OS page-cache purge. End-to-end starts at CSV import and ends after atomic result publication; fixture creation and module startup are excluded.",
+    "rss": "Each case is a separate process. Linux resourceUsage.maxRSS supplies the process high-water mark; parent /proc VmRSS is additionally sampled every 20 ms. Both include dataset preparation and all case phases.",
+    "gc": "PerformanceObserver records are drained outside timed intervals; only events starting inside each interval are counted. Sweeps have separate worker isolates whose GC is not included.",
+    "concurrency": "Scenarios run serially; each multiworker sweep uses four workers. This is a shared development machine, not a reserved benchmark host."
+  },
+  "environment": {
+    "node": "v24.18.0",
+    "versions": {
+      "node": "24.18.0",
+      "acorn": "8.16.0",
+      "ada": "3.4.4",
+      "amaro": "1.1.9",
+      "ares": "1.34.6",
+      "brotli": "1.2.0",
+      "cldr": "48.0",
+      "icu": "78.3",
+      "llhttp": "9.4.2",
+      "merve": "1.2.2",
+      "modules": "137",
+      "napi": "10",
+      "nbytes": "0.1.4",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.69.0",
+      "nghttp3": "",
+      "ngtcp2": "",
+      "openssl": "3.5.7",
+      "simdjson": "4.6.4",
+      "simdutf": "6.4.0",
+      "sqlite": "3.53.1",
+      "tz": "2026b",
+      "undici": "7.28.0",
+      "unicode": "17.0",
+      "uv": "1.52.1",
+      "uvwasi": "0.0.23",
+      "v8": "13.6.233.17-node.50",
+      "zlib": "1.3.1-e00f703",
+      "zstd": "1.5.7"
+    },
+    "platform": "linux",
+    "arch": "x64",
+    "osRelease": "7.0.0-31-generic",
+    "cpu": "AMD Ryzen 7 5800H with Radeon Graphics",
+    "logicalCpus": 16,
+    "availableParallelism": 16,
+    "totalMemoryBytes": 32954757120,
+    "loadAverageStart": [
+      1.6,
+      1.72,
+      1.35
+    ],
+    "loadAverageEnd": [
+      2.11,
+      1.83,
+      1.41
+    ]
+  },
+  "coldStartup": [
+    {
+      "kind": "source",
+      "runtime": "/home/rui/.nvm/versions/node/v24.18.0/bin/node",
+      "measurement": "Fresh Node process and module import; OS file cache is not cleared",
+      "count": 5,
+      "p50Ms": 135.62753999999998,
+      "p95Ms": 137.135004,
+      "minMs": 133.84042999999997,
+      "maxMs": 137.135004,
+      "samples": [
+        {
+          "ms": 137.135004,
+          "peakRssBytes": 78688256
+        },
+        {
+          "ms": 135.62753999999998,
+          "peakRssBytes": 78540800
+        },
+        {
+          "ms": 133.84042999999997,
+          "peakRssBytes": 78340096
+        },
+        {
+          "ms": 135.68900099999996,
+          "peakRssBytes": 78524416
+        },
+        {
+          "ms": 134.982621,
+          "peakRssBytes": 78921728
+        }
+      ]
+    },
+    {
+      "kind": "bundle",
+      "runtime": "/home/rui/.nvm/versions/node/v24.18.0/bin/node",
+      "measurement": "Fresh Node process and module import; OS file cache is not cleared",
+      "count": 5,
+      "p50Ms": 94.32125600000006,
+      "p95Ms": 97.08133099999998,
+      "minMs": 89.45782699999995,
+      "maxMs": 97.08133099999998,
+      "samples": [
+        {
+          "ms": 97.08133099999998,
+          "peakRssBytes": 73891840
+        },
+        {
+          "ms": 93.05027600000005,
+          "peakRssBytes": 73641984
+        },
+        {
+          "ms": 94.32125600000006,
+          "peakRssBytes": 74289152
+        },
+        {
+          "ms": 89.45782699999995,
+          "peakRssBytes": 73752576
+        },
+        {
+          "ms": 94.36413900000002,
+          "peakRssBytes": 73699328
+        }
+      ]
+    },
+    {
+      "kind": "source",
+      "runtime": "/home/rui/Codes/zwork-backtest/.cache/node22/node",
+      "measurement": "Fresh Node process and module import; OS file cache is not cleared",
+      "count": 5,
+      "p50Ms": 130.5918119999999,
+      "p95Ms": 131.99472200000014,
+      "minMs": 129.41735300000005,
+      "maxMs": 131.99472200000014,
+      "samples": [
+        {
+          "ms": 131.1356699999999,
+          "peakRssBytes": 73613312
+        },
+        {
+          "ms": 130.5918119999999,
+          "peakRssBytes": 73838592
+        },
+        {
+          "ms": 129.41735300000005,
+          "peakRssBytes": 74211328
+        },
+        {
+          "ms": 130.01596700000005,
+          "peakRssBytes": 73867264
+        },
+        {
+          "ms": 131.99472200000014,
+          "peakRssBytes": 73699328
+        }
+      ]
+    },
+    {
+      "kind": "bundle",
+      "runtime": "/home/rui/Codes/zwork-backtest/.cache/node22/node",
+      "measurement": "Fresh Node process and module import; OS file cache is not cleared",
+      "count": 5,
+      "p50Ms": 125.16643699999986,
+      "p95Ms": 129.47518200000013,
+      "minMs": 122.43359900000041,
+      "maxMs": 129.47518200000013,
+      "samples": [
+        {
+          "ms": 125.16643699999986,
+          "peakRssBytes": 87011328
+        },
+        {
+          "ms": 124.36269800000014,
+          "peakRssBytes": 87543808
+        },
+        {
+          "ms": 122.43359900000041,
+          "peakRssBytes": 87199744
+        },
+        {
+          "ms": 126.82922899999994,
+          "peakRssBytes": 87076864
+        },
+        {
+          "ms": 129.47518200000013,
+          "peakRssBytes": 82124800
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "final_minute_240k",
+      "runtime": "v24.18.0",
+      "configuration": {
+        "id": "final_minute_240k",
+        "mode": "hot",
+        "bars": 240000,
+        "expectedFillCount": 2398,
+        "samples": 5
+      },
+      "identity": {
+        "datasetHash": "51962c3a58bbce7fdba698d47010ca9702b85beefcc67215e7866cf30d59539e",
+        "rowCount": 240000,
+        "symbols": 1,
+        "frequency": "minute",
+        "calendar": "synthetic-every-date-v1; every supplied date is a synthetic session, including weekends",
+        "start": 1577842200000,
+        "end": 1664170200001,
+        "output": "summary",
+        "engineVersion": "0.1.0",
+        "edgeCounts": {
+          "missingRows": 0,
+          "suspendedRows": 0,
+          "corporateActions": 0
+        }
+      },
+      "buildFiles": {
+        "dist/src/engine/run.js": {
+          "sha256": "f58e2e4c872ca370c04e6da589cca2dc04b5bb13ca37f525544c13993bd16408",
+          "modifiedAt": "2026-10-29T17:45:12.303Z"
+        },
+        "dist/src/accounting/ledger.js": {
+          "sha256": "a190810ee3885a9884bdd5e49faaaee3c4015535cd897480a0116841ff832aa4",
+          "modifiedAt": "2026-10-29T17:45:12.320Z"
+        },
+        "dist/src/analytics/metrics.js": {
+          "sha256": "a24762d462e6387dc7e3f4cf4ff5f6e3b52474c8f6fde13e70bb334942a1784f",
+          "modifiedAt": "2026-10-29T17:45:12.280Z"
+        }
+      },
+      "moduleLoadMs": 95.073521,
+      "generationMs": 156.60122199999998,
+      "initialNormalizeMs": 5094.326504000001,
+      "stages": {
+        "hotRun": {
+          "count": 5,
+          "p50Ms": 783.6749799999998,
+          "p95Ms": 811.8614959999995,
+          "minMs": 750.0254449999993,
+          "maxMs": 811.8614959999995,
+          "samples": [
+            {
+              "ms": 795.1299319999998,
+              "cpuMs": 941.55,
+              "heapUsedBefore": 35085464,
+              "heapUsedAfter": 93552048,
+              "heapDeltaBytes": 58466584,
+              "externalAfter": 22935780,
+              "arrayBuffersAfter": 20544959,
+              "rssAfter": 712790016,
+              "gcCount": 30,
+              "gcMs": 23.607966423034668
+            },
+            {
+              "ms": 765.8665270000001,
+              "cpuMs": 785.948,
+              "heapUsedBefore": 32416552,
+              "heapUsedAfter": 70474048,
+              "heapDeltaBytes": 38057496,
+              "externalAfter": 22966547,
+              "arrayBuffersAfter": 20545519,
+              "rssAfter": 712769536,
+              "gcCount": 30,
+              "gcMs": 24.582820892333984
+            },
+            {
+              "ms": 750.0254449999993,
+              "cpuMs": 757.62,
+              "heapUsedBefore": 70869216,
+              "heapUsedAfter": 107974088,
+              "heapDeltaBytes": 37104872,
+              "externalAfter": 22967107,
+              "arrayBuffersAfter": 20546079,
+              "rssAfter": 712769536,
+              "gcCount": 30,
+              "gcMs": 22.23132085800171
+            },
+            {
+              "ms": 811.8614959999995,
+              "cpuMs": 893.232,
+              "heapUsedBefore": 13619880,
+              "heapUsedAfter": 72576232,
+              "heapDeltaBytes": 58956352,
+              "externalAfter": 22965219,
+              "arrayBuffersAfter": 20544191,
+              "rssAfter": 712884224,
+              "gcCount": 30,
+              "gcMs": 24.36281728744507
+            },
+            {
+              "ms": 783.6749799999998,
+              "cpuMs": 812.004,
+              "heapUsedBefore": 72949944,
+              "heapUsedAfter": 50616512,
+              "heapDeltaBytes": -22333432,
+              "externalAfter": 22965779,
+              "arrayBuffersAfter": 20544751,
+              "rssAfter": 712581120,
+              "gcCount": 31,
+              "gcMs": 25.102168560028076
+            }
+          ]
+        }
+      },
+      "peakRssBytes": 719728640,
+      "resourceUsage": {
+        "userCPUTime": 12309376,
+        "systemCPUTime": 515967,
+        "maxRSS": 702860,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 186900,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 2965,
+        "involuntaryContextSwitches": 235
+      },
+      "gcScope": "main isolate; observer callbacks drained after every measured interval",
+      "memoryNotes": "heap deltas are retained-heap changes, not allocation totals; RSS includes preparation and all phases in this child process",
+      "result": {
+        "metrics": {
+          "initialCash": "1000000.00",
+          "finalEquity": "6958346.57",
+          "netExternalFlows": "0.00",
+          "netProfit": "5958346.57",
+          "accountReturn": 5.95834657,
+          "timeWeightedReturn": 5.95834657,
+          "annualizedReturn": 1.032272724525337,
+          "maxDrawdownPct": {
+            "value": 0.0026108858268127063,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "rawEquityDrawdownPct": {
+            "value": 0.002610885826812552,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "maxDrawdownAmount": {
+            "value": 2630.570000000298,
+            "peakAt": 1578544260000,
+            "troughAt": 1578623700000,
+            "recoveredAt": 1578625320000
+          },
+          "drawdownCoverage": {
+            "status": "unverified",
+            "scope": "observed_marks",
+            "frequency": "minute",
+            "missingSessions": 0,
+            "examples": [],
+            "reason": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied."
+          },
+          "annualizedVolatility": 0.02099365977849541,
+          "sharpe": 23.319382959531016,
+          "sortino": null,
+          "calmar": 395.37260263330074,
+          "fees": "204513.43",
+          "fillCount": 2398,
+          "orderCount": 2398,
+          "rejectedOrderCount": 0,
+          "roundTripCount": 1199,
+          "winRate": 1,
+          "profitFactor": null,
+          "turnover": 63.29166067764332,
+          "benchmarkReturn": null,
+          "excessReturn": null,
+          "unavailable": {
+            "sortino": "At least two session returns and nonzero downside deviation are required",
+            "maxDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "rawEquityDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "maxDrawdownAmount": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "riskCoverage": "Volatility and risk-adjusted ratios also use the available valuation series; missing intraperiod prices were not inferred.",
+            "profitFactor": "No completed losing position cycle; infinity is not reported",
+            "benchmarkReturn": "No benchmark was supplied",
+            "excessReturn": "Requires a benchmark return and account time-weighted return"
+          }
+        },
+        "fingerprint": "11396413ef5730de7d587081f7db82885ae833a85f1e5b8032cc0371ff1ef2f4",
+        "timing": {
+          "totalMs": 783.5144849999997,
+          "indicatorMs": null,
+          "engineMs": null,
+          "phaseTiming": "disabled"
+        }
+      },
+      "processWallMs": 10465.893036,
+      "parentSampledRssBytes": 718225408,
+      "rssSampleCount": 518
+    },
+    {
+      "id": "final_minute_1m",
+      "runtime": "v24.18.0",
+      "configuration": {
+        "id": "final_minute_1m",
+        "mode": "hot",
+        "bars": 1000000,
+        "expectedFillCount": 9998,
+        "samples": 5
+      },
+      "identity": {
+        "datasetHash": "13a303e602c7bbaabd0722e8265089fab8a1a0b4c7f278ac5471f1fd5e16ce44",
+        "rowCount": 1000000,
+        "symbols": 1,
+        "frequency": "minute",
+        "calendar": "synthetic-every-date-v1; every supplied date is a synthetic session, including weekends",
+        "start": 1577842200000,
+        "end": 1937794200001,
+        "output": "summary",
+        "engineVersion": "0.1.0",
+        "edgeCounts": {
+          "missingRows": 0,
+          "suspendedRows": 0,
+          "corporateActions": 0
+        }
+      },
+      "buildFiles": {
+        "dist/src/engine/run.js": {
+          "sha256": "f58e2e4c872ca370c04e6da589cca2dc04b5bb13ca37f525544c13993bd16408",
+          "modifiedAt": "2026-10-29T17:45:12.303Z"
+        },
+        "dist/src/accounting/ledger.js": {
+          "sha256": "a190810ee3885a9884bdd5e49faaaee3c4015535cd897480a0116841ff832aa4",
+          "modifiedAt": "2026-10-29T17:45:12.320Z"
+        },
+        "dist/src/analytics/metrics.js": {
+          "sha256": "a24762d462e6387dc7e3f4cf4ff5f6e3b52474c8f6fde13e70bb334942a1784f",
+          "modifiedAt": "2026-10-29T17:45:12.280Z"
+        }
+      },
+      "moduleLoadMs": 88.956782,
+      "generationMs": 632.187152,
+      "initialNormalizeMs": 18168.025703,
+      "stages": {
+        "hotRun": {
+          "count": 5,
+          "p50Ms": 3326.198332,
+          "p95Ms": 3542.9948829999994,
+          "minMs": 3275.8886810000004,
+          "maxMs": 3542.9948829999994,
+          "samples": [
+            {
+              "ms": 3275.8886810000004,
+              "cpuMs": 3431.213,
+              "heapUsedBefore": 16114608,
+              "heapUsedAfter": 59316352,
+              "heapDeltaBytes": 43201744,
+              "externalAfter": 87535012,
+              "arrayBuffersAfter": 85144191,
+              "rssAfter": 684642304,
+              "gcCount": 127,
+              "gcMs": 99.95838785171509
+            },
+            {
+              "ms": 3469.2635279999995,
+              "cpuMs": 3610.452,
+              "heapUsedBefore": 16955296,
+              "heapUsedAfter": 83379896,
+              "heapDeltaBytes": 66424600,
+              "externalAfter": 87565219,
+              "arrayBuffersAfter": 85144191,
+              "rssAfter": 683872256,
+              "gcCount": 127,
+              "gcMs": 109.97873306274414
+            },
+            {
+              "ms": 3542.9948829999994,
+              "cpuMs": 3659.649,
+              "heapUsedBefore": 16725696,
+              "heapUsedAfter": 83620600,
+              "heapDeltaBytes": 66894904,
+              "externalAfter": 87565219,
+              "arrayBuffersAfter": 85144191,
+              "rssAfter": 683384832,
+              "gcCount": 127,
+              "gcMs": 115.70651769638062
+            },
+            {
+              "ms": 3326.198332,
+              "cpuMs": 3429.476,
+              "heapUsedBefore": 17125008,
+              "heapUsedAfter": 80768896,
+              "heapDeltaBytes": 63643888,
+              "externalAfter": 87561616,
+              "arrayBuffersAfter": 85144191,
+              "rssAfter": 683012096,
+              "gcCount": 127,
+              "gcMs": 102.20673990249634
+            },
+            {
+              "ms": 3295.1190419999984,
+              "cpuMs": 3399.512,
+              "heapUsedBefore": 17771144,
+              "heapUsedAfter": 80626648,
+              "heapDeltaBytes": 62855504,
+              "externalAfter": 87561616,
+              "arrayBuffersAfter": 85144191,
+              "rssAfter": 682725376,
+              "gcCount": 127,
+              "gcMs": 96.87131834030151
+            }
+          ]
+        }
+      },
+      "peakRssBytes": 702017536,
+      "resourceUsage": {
+        "userCPUTime": 40619267,
+        "systemCPUTime": 692316,
+        "maxRSS": 685564,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 208831,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 6494,
+        "involuntaryContextSwitches": 608
+      },
+      "gcScope": "main isolate; observer callbacks drained after every measured interval",
+      "memoryNotes": "heap deltas are retained-heap changes, not allocation totals; RSS includes preparation and all phases in this child process",
+      "result": {
+        "metrics": {
+          "initialCash": "1000000.00",
+          "finalEquity": "25842180.57",
+          "netExternalFlows": "0.00",
+          "netProfit": "24842180.57",
+          "accountReturn": 24.84218057,
+          "timeWeightedReturn": 24.84218057,
+          "annualizedReturn": 0.3299070350319677,
+          "maxDrawdownPct": {
+            "value": 0.0026108858268127063,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "rawEquityDrawdownPct": {
+            "value": 0.002610885826812552,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "maxDrawdownAmount": {
+            "value": 2630.570000000298,
+            "peakAt": 1578544260000,
+            "troughAt": 1578623700000,
+            "recoveredAt": 1578625320000
+          },
+          "drawdownCoverage": {
+            "status": "unverified",
+            "scope": "observed_marks",
+            "frequency": "minute",
+            "missingSessions": 0,
+            "examples": [],
+            "reason": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied."
+          },
+          "annualizedVolatility": 0.014865639229355035,
+          "sharpe": 13.242122639598252,
+          "sortino": null,
+          "calmar": 126.35827719617623,
+          "fees": "852679.43",
+          "fillCount": 9998,
+          "orderCount": 9998,
+          "rejectedOrderCount": 0,
+          "roundTripCount": 4999,
+          "winRate": 1,
+          "profitFactor": null,
+          "turnover": 78.22481692819507,
+          "benchmarkReturn": null,
+          "excessReturn": null,
+          "unavailable": {
+            "sortino": "At least two session returns and nonzero downside deviation are required",
+            "maxDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "rawEquityDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "maxDrawdownAmount": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "riskCoverage": "Volatility and risk-adjusted ratios also use the available valuation series; missing intraperiod prices were not inferred.",
+            "profitFactor": "No completed losing position cycle; infinity is not reported",
+            "benchmarkReturn": "No benchmark was supplied",
+            "excessReturn": "Requires a benchmark return and account time-weighted return"
+          }
+        },
+        "fingerprint": "de60e83a5ae238b7d767c53bfe95e01ce0e230715e6d292ef364d2bb2aeea022",
+        "timing": {
+          "totalMs": 3294.9304699999993,
+          "indicatorMs": null,
+          "engineMs": null,
+          "phaseTiming": "disabled"
+        }
+      },
+      "processWallMs": 39454.776569,
+      "parentSampledRssBytes": 702447616,
+      "rssSampleCount": 1958
+    },
+    {
+      "id": "final_edge_cases_10k",
+      "runtime": "v24.18.0",
+      "configuration": {
+        "id": "final_edge_cases_10k",
+        "mode": "hot",
+        "bars": 10000,
+        "symbols": 4,
+        "frequency": "day",
+        "edge": true,
+        "samples": 5
+      },
+      "identity": {
+        "datasetHash": "2150c66faa949697fe39bbb955baa7bd7d3e6d2fca75aae6b0f88c18491929f9",
+        "rowCount": 9974,
+        "symbols": 4,
+        "frequency": "day",
+        "calendar": "synthetic-every-date-v1; every supplied date is a synthetic session, including weekends",
+        "start": 1577842200000,
+        "end": 1793775600001,
+        "output": "summary",
+        "engineVersion": "0.1.0",
+        "edgeCounts": {
+          "missingRows": 26,
+          "suspendedRows": 10,
+          "corporateActions": 2
+        }
+      },
+      "buildFiles": {
+        "dist/src/engine/run.js": {
+          "sha256": "f58e2e4c872ca370c04e6da589cca2dc04b5bb13ca37f525544c13993bd16408",
+          "modifiedAt": "2026-10-29T17:45:12.303Z"
+        },
+        "dist/src/accounting/ledger.js": {
+          "sha256": "a190810ee3885a9884bdd5e49faaaee3c4015535cd897480a0116841ff832aa4",
+          "modifiedAt": "2026-10-29T17:45:12.320Z"
+        },
+        "dist/src/analytics/metrics.js": {
+          "sha256": "a24762d462e6387dc7e3f4cf4ff5f6e3b52474c8f6fde13e70bb334942a1784f",
+          "modifiedAt": "2026-10-29T17:45:12.280Z"
+        }
+      },
+      "moduleLoadMs": 93.59280600000001,
+      "generationMs": 21.930234000000013,
+      "initialNormalizeMs": 257.69097899999997,
+      "stages": {
+        "hotRun": {
+          "count": 5,
+          "p50Ms": 35.03051599999992,
+          "p95Ms": 46.419047999999975,
+          "minMs": 34.67334500000004,
+          "maxMs": 46.419047999999975,
+          "samples": [
+            {
+              "ms": 46.419047999999975,
+              "cpuMs": 109.674,
+              "heapUsedBefore": 23576864,
+              "heapUsedAfter": 23836000,
+              "heapDeltaBytes": 259136,
+              "externalAfter": 3386930,
+              "arrayBuffersAfter": 996109,
+              "rssAfter": 132714496,
+              "gcCount": 4,
+              "gcMs": 1.5379853248596191
+            },
+            {
+              "ms": 37.252252,
+              "cpuMs": 66.118,
+              "heapUsedBefore": 24073744,
+              "heapUsedAfter": 19491744,
+              "heapDeltaBytes": -4582000,
+              "externalAfter": 3419377,
+              "arrayBuffersAfter": 998349,
+              "rssAfter": 127623168,
+              "gcCount": 4,
+              "gcMs": 1.6271724700927734
+            },
+            {
+              "ms": 34.67334500000004,
+              "cpuMs": 55.127,
+              "heapUsedBefore": 19590224,
+              "heapUsedAfter": 28852072,
+              "heapDeltaBytes": 9261848,
+              "externalAfter": 3421617,
+              "arrayBuffersAfter": 1000589,
+              "rssAfter": 127483904,
+              "gcCount": 3,
+              "gcMs": 1.3230819702148438
+            },
+            {
+              "ms": 35.03051599999992,
+              "cpuMs": 46.094,
+              "heapUsedBefore": 28925856,
+              "heapUsedAfter": 20206128,
+              "heapDeltaBytes": -8719728,
+              "externalAfter": 3423857,
+              "arrayBuffersAfter": 1002829,
+              "rssAfter": 127909888,
+              "gcCount": 4,
+              "gcMs": 2.1989665031433105
+            },
+            {
+              "ms": 34.843061000000034,
+              "cpuMs": 67.028,
+              "heapUsedBefore": 20300320,
+              "heapUsedAfter": 25679680,
+              "heapDeltaBytes": 5379360,
+              "externalAfter": 3426097,
+              "arrayBuffersAfter": 1005069,
+              "rssAfter": 129978368,
+              "gcCount": 3,
+              "gcMs": 1.1945042610168457
+            }
+          ]
+        }
+      },
+      "peakRssBytes": 132976640,
+      "resourceUsage": {
+        "userCPUTime": 1047375,
+        "systemCPUTime": 98049,
+        "maxRSS": 129860,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 31918,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 1022,
+        "involuntaryContextSwitches": 50
+      },
+      "gcScope": "main isolate; observer callbacks drained after every measured interval",
+      "memoryNotes": "heap deltas are retained-heap changes, not allocation totals; RSS includes preparation and all phases in this child process",
+      "result": {
+        "metrics": {
+          "initialCash": "1000000000.00",
+          "finalEquity": "1000225722.98",
+          "netExternalFlows": "0.00",
+          "netProfit": "225722.98",
+          "accountReturn": 0.00022572298,
+          "timeWeightedReturn": 0.00022572298,
+          "annualizedReturn": 0.00003298512021885039,
+          "maxDrawdownPct": {
+            "value": 0.000010522062685513,
+            "peakAt": 1603782000000,
+            "troughAt": 1614495600000,
+            "recoveredAt": 1616828400000
+          },
+          "rawEquityDrawdownPct": {
+            "value": 0.000010522062685519502,
+            "peakAt": 1603782000000,
+            "troughAt": 1614495600000,
+            "recoveredAt": 1616828400000
+          },
+          "maxDrawdownAmount": {
+            "value": 10522.379999995232,
+            "peakAt": 1603782000000,
+            "troughAt": 1614495600000,
+            "recoveredAt": 1616828400000
+          },
+          "drawdownCoverage": {
+            "status": "incomplete",
+            "scope": "observed_marks",
+            "frequency": "day",
+            "missingSessions": 12,
+            "examples": [
+              {
+                "symbol": "S0003",
+                "fromSession": "2020-09-17",
+                "throughSession": "2020-09-17"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2021-03-30",
+                "throughSession": "2021-03-30"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2021-10-10",
+                "throughSession": "2021-10-10"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2022-04-22",
+                "throughSession": "2022-04-22"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2022-11-02",
+                "throughSession": "2022-11-02"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2023-05-15",
+                "throughSession": "2023-05-15"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2024-03-01",
+                "throughSession": "2024-03-01"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2024-09-11",
+                "throughSession": "2024-09-11"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2025-03-24",
+                "throughSession": "2025-03-24"
+              },
+              {
+                "symbol": "S0003",
+                "fromSession": "2025-10-04",
+                "throughSession": "2025-10-04"
+              }
+            ],
+            "reason": "Held instrument/session pairs have no available quote; recorded drawdowns are limited to observed and carried marks, not full-period risk."
+          },
+          "annualizedVolatility": 0.000003858560851545383,
+          "sharpe": 5.896062856161897,
+          "sortino": 10.583508451197355,
+          "calmar": 3.1348530421002914,
+          "fees": "7017.02",
+          "fillCount": 92,
+          "orderCount": 92,
+          "rejectedOrderCount": 0,
+          "roundTripCount": 44,
+          "winRate": 1,
+          "profitFactor": null,
+          "turnover": 0.008865268472308901,
+          "benchmarkReturn": null,
+          "excessReturn": null,
+          "unavailable": {
+            "maxDrawdownPct": "Held instrument/session pairs have no available quote; recorded drawdowns are limited to observed and carried marks, not full-period risk.",
+            "rawEquityDrawdownPct": "Held instrument/session pairs have no available quote; recorded drawdowns are limited to observed and carried marks, not full-period risk.",
+            "maxDrawdownAmount": "Held instrument/session pairs have no available quote; recorded drawdowns are limited to observed and carried marks, not full-period risk.",
+            "riskCoverage": "Volatility and risk-adjusted ratios also use the available valuation series; missing intraperiod prices were not inferred.",
+            "profitFactor": "No completed losing position cycle; infinity is not reported",
+            "benchmarkReturn": "No benchmark was supplied",
+            "excessReturn": "Requires a benchmark return and account time-weighted return"
+          }
+        },
+        "fingerprint": "0f776798913e21afee98eee53f9ede512454046490d5a034dd718767f81d012a",
+        "timing": {
+          "totalMs": 34.67998,
+          "indicatorMs": null,
+          "engineMs": null,
+          "phaseTiming": "disabled"
+        }
+      },
+      "processWallMs": 912.2175659999994,
+      "parentSampledRssBytes": 133464064,
+      "rssSampleCount": 44
+    },
+    {
+      "id": "node22_minute_240k",
+      "runtime": "v22.23.4",
+      "configuration": {
+        "id": "node22_minute_240k",
+        "mode": "hot",
+        "bars": 240000,
+        "samples": 5,
+        "expectedFillCount": 2398
+      },
+      "identity": {
+        "datasetHash": "51962c3a58bbce7fdba698d47010ca9702b85beefcc67215e7866cf30d59539e",
+        "rowCount": 240000,
+        "symbols": 1,
+        "frequency": "minute",
+        "calendar": "synthetic-every-date-v1; every supplied date is a synthetic session, including weekends",
+        "start": 1577842200000,
+        "end": 1664170200001,
+        "output": "summary",
+        "engineVersion": "0.1.0",
+        "edgeCounts": {
+          "missingRows": 0,
+          "suspendedRows": 0,
+          "corporateActions": 0
+        }
+      },
+      "buildFiles": {
+        "dist/src/engine/run.js": {
+          "sha256": "f58e2e4c872ca370c04e6da589cca2dc04b5bb13ca37f525544c13993bd16408",
+          "modifiedAt": "2026-10-29T17:45:12.303Z"
+        },
+        "dist/src/accounting/ledger.js": {
+          "sha256": "a190810ee3885a9884bdd5e49faaaee3c4015535cd897480a0116841ff832aa4",
+          "modifiedAt": "2026-10-29T17:45:12.320Z"
+        },
+        "dist/src/analytics/metrics.js": {
+          "sha256": "a24762d462e6387dc7e3f4cf4ff5f6e3b52474c8f6fde13e70bb334942a1784f",
+          "modifiedAt": "2026-10-29T17:45:12.280Z"
+        }
+      },
+      "moduleLoadMs": 86.671142,
+      "generationMs": 137.56397199999998,
+      "initialNormalizeMs": 5060.998240999999,
+      "stages": {
+        "hotRun": {
+          "count": 5,
+          "p50Ms": 864.3861089999991,
+          "p95Ms": 878.8349660000003,
+          "minMs": 837.0918220000003,
+          "maxMs": 878.8349660000003,
+          "samples": [
+            {
+              "ms": 878.8349660000003,
+              "cpuMs": 1014.18,
+              "heapUsedBefore": 24430608,
+              "heapUsedAfter": 44265944,
+              "heapDeltaBytes": 19835336,
+              "externalAfter": 22647498,
+              "arrayBuffersAfter": 20426151,
+              "rssAfter": 232120320,
+              "gcCount": 129,
+              "gcMs": 49.89095163345337
+            },
+            {
+              "ms": 876.6417259999998,
+              "cpuMs": 973.615,
+              "heapUsedBefore": 45660048,
+              "heapUsedAfter": 48585824,
+              "heapDeltaBytes": 2925776,
+              "externalAfter": 22677183,
+              "arrayBuffersAfter": 20426711,
+              "rssAfter": 233033728,
+              "gcCount": 130,
+              "gcMs": 45.662453174591064
+            },
+            {
+              "ms": 837.0918220000003,
+              "cpuMs": 858.516,
+              "heapUsedBefore": 49967712,
+              "heapUsedAfter": 62126920,
+              "heapDeltaBytes": 12159208,
+              "externalAfter": 22677743,
+              "arrayBuffersAfter": 20427271,
+              "rssAfter": 232976384,
+              "gcCount": 134,
+              "gcMs": 45.89425182342529
+            },
+            {
+              "ms": 864.3861089999991,
+              "cpuMs": 926.494,
+              "heapUsedBefore": 17526008,
+              "heapUsedAfter": 35132936,
+              "heapDeltaBytes": 17606928,
+              "externalAfter": 22675863,
+              "arrayBuffersAfter": 20425391,
+              "rssAfter": 233328640,
+              "gcCount": 134,
+              "gcMs": 47.99028444290161
+            },
+            {
+              "ms": 845.910457,
+              "cpuMs": 909.962,
+              "heapUsedBefore": 18229064,
+              "heapUsedAfter": 31336344,
+              "heapDeltaBytes": 13107280,
+              "externalAfter": 22675863,
+              "arrayBuffersAfter": 20425391,
+              "rssAfter": 233017344,
+              "gcCount": 134,
+              "gcMs": 45.206809997558594
+            }
+          ]
+        }
+      },
+      "peakRssBytes": 241328128,
+      "resourceUsage": {
+        "userCPUTime": 11099308,
+        "systemCPUTime": 544867,
+        "maxRSS": 235672,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 70949,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 5265,
+        "involuntaryContextSwitches": 190
+      },
+      "gcScope": "main isolate; observer callbacks drained after every measured interval",
+      "memoryNotes": "heap deltas are retained-heap changes, not allocation totals; RSS includes preparation and all phases in this child process",
+      "result": {
+        "metrics": {
+          "initialCash": "1000000.00",
+          "finalEquity": "6958346.57",
+          "netExternalFlows": "0.00",
+          "netProfit": "5958346.57",
+          "accountReturn": 5.95834657,
+          "timeWeightedReturn": 5.95834657,
+          "annualizedReturn": 1.032272724525337,
+          "maxDrawdownPct": {
+            "value": 0.0026108858268127063,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "rawEquityDrawdownPct": {
+            "value": 0.002610885826812552,
+            "peakAt": 1577932260000,
+            "troughAt": 1577939700000,
+            "recoveredAt": 1577941320000
+          },
+          "maxDrawdownAmount": {
+            "value": 2630.570000000298,
+            "peakAt": 1578544260000,
+            "troughAt": 1578623700000,
+            "recoveredAt": 1578625320000
+          },
+          "drawdownCoverage": {
+            "status": "unverified",
+            "scope": "observed_marks",
+            "frequency": "minute",
+            "missingSessions": 0,
+            "examples": [],
+            "reason": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied."
+          },
+          "annualizedVolatility": 0.02099365977849541,
+          "sharpe": 23.319382959531016,
+          "sortino": null,
+          "calmar": 395.37260263330074,
+          "fees": "204513.43",
+          "fillCount": 2398,
+          "orderCount": 2398,
+          "rejectedOrderCount": 0,
+          "roundTripCount": 1199,
+          "winRate": 1,
+          "profitFactor": null,
+          "turnover": 63.29166067764332,
+          "benchmarkReturn": null,
+          "excessReturn": null,
+          "unavailable": {
+            "sortino": "At least two session returns and nonzero downside deviation are required",
+            "maxDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "rawEquityDrawdownPct": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "maxDrawdownAmount": "Intraday quote-cadence completeness has not been verified; minute drawdowns use observed marks only, even when session intervals are supplied.",
+            "riskCoverage": "Volatility and risk-adjusted ratios also use the available valuation series; missing intraperiod prices were not inferred.",
+            "profitFactor": "No completed losing position cycle; infinity is not reported",
+            "benchmarkReturn": "No benchmark was supplied",
+            "excessReturn": "Requires a benchmark return and account time-weighted return"
+          }
+        },
+        "fingerprint": "11396413ef5730de7d587081f7db82885ae833a85f1e5b8032cc0371ff1ef2f4",
+        "timing": {
+          "totalMs": 845.7387870000002,
+          "indicatorMs": null,
+          "engineMs": null,
+          "phaseTiming": "disabled"
+        }
+      },
+      "processWallMs": 10795.234786,
+      "parentSampledRssBytes": 242118656,
+      "rssSampleCount": 536
+    }
+  ],
+  "finishedAt": "2026-10-29T17:47:35.528Z",
+  "complete": true
+}

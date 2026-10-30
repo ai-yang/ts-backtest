@@ -1,0 +1,10 @@
+Reading additional input from stdin...
+2026-10-29T16:37:33.998053Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-29T16:37:34.017436Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-29T16:37:38.347523Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.349439Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.351151Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.352953Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.354782Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.356406Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-29T16:37:38.357943Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back

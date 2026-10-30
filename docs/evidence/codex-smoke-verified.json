@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verifiedFrom": "actual completed MCP tool outputs, independently of model final text",
+  "toolNames": [
+    "backtest_capabilities",
+    "backtest_prepare_data",
+    "backtest_validate",
+    "backtest_run",
+    "backtest_job",
+    "backtest_result",
+    "backtest_explain"
+  ],
+  "completedCalls": 11,
+  "runId": "run_752650cf-671d-4cf1-aac2-36c580978c9b",
+  "finalEquity": "1100.00",
+  "fillIds": [
+    "fill-1",
+    "fill-2"
+  ],
+  "sameConnection": true,
+  "at": "2026-10-29T16:42:01.003Z"
+}

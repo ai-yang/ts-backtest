@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.backtest/
+coverage/
+*.tgz
+benchmark-output/
+.checkpoints/
+.cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store

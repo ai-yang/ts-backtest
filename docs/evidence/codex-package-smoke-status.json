@@ -1,0 +1,10 @@
+{
+  "exitCode": 0,
+  "timedOut": false,
+  "at": "2026-10-30T02:47:46.595Z",
+  "server": "/home/rui/Codes/ts-backtest/dist/package/ts-backtest/mcp.cjs",
+  "serverSha256": "903a89877b0a6c291f9bc15855c744c88a2cf6b207ba46e07b5d17ec542bdc8f",
+  "fixtureSha256": "55e8c6ac1438a84c55f1c628739e4180a034a482c0417ff26d100a6d31470a1e",
+  "command": "node scripts/codex-package-smoke.mjs",
+  "configurationScope": "ephemeral --ignore-user-config -c; user config unchanged"
+}

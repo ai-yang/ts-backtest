@@ -1,0 +1,240 @@
+{
+  "dataset": {
+    "path": "frames-bars.jsonl",
+    "format": "jsonl",
+    "metadata": {
+      "schemaVersion": "1",
+      "timezone": "Asia/Shanghai",
+      "frequency": "minute",
+      "priceAdjustment": "raw",
+      "volumeUnit": "shares",
+      "amountUnit": "currency",
+      "currency": "CNY",
+      "calendarVersion": "test-v1",
+      "sessions": [
+        "2024-01-02",
+        "2024-01-03"
+      ],
+      "instruments": [
+        {
+          "symbol": "AAA",
+          "type": "stock",
+          "currency": "CNY",
+          "tickSize": "0.01",
+          "lotSize": 1,
+          "settlementDays": 0,
+          "allowOddLotSell": true,
+          "requirePriceLimits": false
+        }
+      ],
+      "corporateActionsCoverage": "complete",
+      "universeMode": "static",
+      "calendarCoverage": {
+        "from": "2024-01-02",
+        "through": "2024-01-03"
+      },
+      "sessionIntervals": [
+        {
+          "session": "2024-01-02",
+          "segments": [
+            {
+              "openTime": 1704159000000,
+              "closeTime": 1704159240000
+            },
+            {
+              "openTime": 1704159600000,
+              "closeTime": 1704159840000
+            }
+          ]
+        },
+        {
+          "session": "2024-01-03",
+          "segments": [
+            {
+              "openTime": 1704245400000,
+              "closeTime": 1704245640000
+            },
+            {
+              "openTime": 1704246000000,
+              "closeTime": 1704246240000
+            }
+          ]
+        }
+      ]
+    },
+    "features": [
+      {
+        "symbol": "AAA",
+        "name": "prediction",
+        "availableAt": 1704159059999,
+        "value": 1
+      },
+      {
+        "symbol": "AAA",
+        "name": "prediction",
+        "availableAt": 1704245400001,
+        "value": -1
+      }
+    ],
+    "frames": {
+      "from": 1704159000000,
+      "asOf": 1704246240000,
+      "recipes": [
+        {
+          "id": "m2",
+          "frame": {
+            "unit": "minute",
+            "minutes": 2,
+            "tailPolicy": "drop"
+          },
+          "missingPolicy": "error",
+          "nodes": {},
+          "outputs": {
+            "sma2": {
+              "op": "sma",
+              "args": [
+                {
+                  "field": "close"
+                }
+              ],
+              "period": 2
+            }
+          }
+        },
+        {
+          "id": "daily",
+          "frame": {
+            "unit": "day"
+          },
+          "missingPolicy": "error",
+          "nodes": {},
+          "outputs": {
+            "close": {
+              "field": "close"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "spec": {
+    "schemaVersion": "1",
+    "start": 1704159000000,
+    "end": 1704246240001,
+    "account": {
+      "currency": "CNY",
+      "initialCash": "1000.00",
+      "moneyDecimals": 2,
+      "cashFlows": []
+    },
+    "strategy": {
+      "kind": "rules",
+      "nodes": {},
+      "rules": [
+        {
+          "when": {
+            "op": "and",
+            "args": [
+              {
+                "op": "gt",
+                "args": [
+                  {
+                    "field": "close"
+                  },
+                  {
+                    "feature": "frame:m2:sma2"
+                  }
+                ]
+              },
+              {
+                "op": "gt",
+                "args": [
+                  {
+                    "feature": "frame:daily:close"
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "op": "gt",
+                "args": [
+                  {
+                    "feature": "prediction"
+                  },
+                  {
+                    "value": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "action": {
+            "type": "target_quantity",
+            "value": 10
+          }
+        },
+        {
+          "when": {
+            "op": "lt",
+            "args": [
+              {
+                "feature": "prediction"
+              },
+              {
+                "value": 0
+              }
+            ]
+          },
+          "action": {
+            "type": "close"
+          }
+        }
+      ]
+    },
+    "costs": {
+      "version": "explicit-zero-v1",
+      "scope": "order",
+      "periods": [
+        {
+          "from": 0,
+          "commissionRate": "0",
+          "minimumCommission": "0",
+          "sellTaxRate": "0",
+          "transferRate": "0"
+        }
+      ]
+    },
+    "execution": {
+      "decisionAt": "bar_close",
+      "fillAt": "next_bar_open",
+      "slippage": {
+        "type": "fixed_bps",
+        "bps": 0
+      },
+      "intrabarPolicy": "conservative",
+      "cashAllocation": "proportional",
+      "endPositionPolicy": "mark_to_market",
+      "participationRate": 1,
+      "maxPositionWeight": 1,
+      "maxStaleSessions": 5,
+      "stalePolicy": "warn"
+    },
+    "analytics": {
+      "annualPeriods": 252,
+      "riskFreeRate": 0
+    },
+    "output": {
+      "level": "fullTrace"
+    },
+    "seed": 1,
+    "limits": {
+      "maxBars": 2000000,
+      "maxOrders": 100000,
+      "maxRuntimeMs": 30000,
+      "maxNodes": 512,
+      "maxOutputRows": 5000000
+    }
+  }
+}

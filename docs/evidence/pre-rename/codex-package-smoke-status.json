@@ -1,0 +1,10 @@
+{
+  "exitCode": 0,
+  "timedOut": false,
+  "at": "2026-10-29T17:47:16.545Z",
+  "server": "/home/rui/Codes/zwork-backtest/dist/package/backtest/mcp.cjs",
+  "serverSha256": "dad1dfbbacf6c7956ef9929a5d98580515b796ab3655abd2914d4ebda7ec63c4",
+  "fixtureSha256": "55e8c6ac1438a84c55f1c628739e4180a034a482c0417ff26d100a6d31470a1e",
+  "command": "node scripts/codex-package-smoke.mjs",
+  "configurationScope": "ephemeral --ignore-user-config -c; user config unchanged"
+}

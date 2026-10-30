@@ -1,0 +1,15 @@
+{
+  "space": { "/strategy/rules/0/action/value": [1, 2, 3] },
+  "objective": { "metric": "netProfit", "direction": "maximize" },
+  "trainSessions": 2,
+  "testSessions": 1,
+  "mode": "rolling",
+  "warmup": "all_prior",
+  "positionPolicy": "carry",
+  "pendingOrderPolicy": "carry",
+  "seed": 42,
+  "concurrency": 2,
+  "maxWindows": 10,
+  "maxTotalBars": 1000000,
+  "maxRuntimeMs": 30000
+}

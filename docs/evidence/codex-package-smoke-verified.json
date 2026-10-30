@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "verifiedFrom": "actual completed MCP tool outputs and on-disk report hashes, independently of model final text",
+  "toolNames": [
+    "backtest_capabilities",
+    "backtest_prepare_data",
+    "backtest_validate",
+    "backtest_run",
+    "backtest_job",
+    "backtest_result",
+    "backtest_explain",
+    "backtest_sweep",
+    "backtest_walk_forward",
+    "backtest_factors",
+    "backtest_study",
+    "backtest_report"
+  ],
+  "completedCalls": 24,
+  "sameConnection": true,
+  "serverSha256": "903a89877b0a6c291f9bc15855c744c88a2cf6b207ba46e07b5d17ec542bdc8f",
+  "runId": "run_0727defc-46ab-4e3b-a509-8121760d476f",
+  "finalEquity": "1042.00",
+  "reportSha256": "2c917d33c803879f6fdf07a709a0df61b4d21a2c5b73b255b57380d6082aea52",
+  "sweepStudyId": "study_5302845d-a396-48de-a5bc-3de77cc688bb",
+  "walkForwardStudyId": "study_84402903-3937-4d97-8c5c-94286a7b8231",
+  "factorStudyId": "study_619670e4-c51f-4ccc-a299-58dbdbf942b8",
+  "assertions": [
+    "exact synthetic ledger gold",
+    "stable fill and study pagination",
+    "linked fill explanation",
+    "HTML artifact integrity",
+    "two real candidate runs",
+    "three OOS windows and one account initial event",
+    "real factor diagnostic rows"
+  ],
+  "at": "2026-10-30T02:48:34.017Z"
+}

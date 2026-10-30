@@ -1,0 +1,20 @@
+import { performance, PerformanceObserver } from 'node:perf_hooks';
+import { Session } from 'node:inspector/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { syntheticInput, syntheticSpec } from './benchmark-fixture.js';
+import { normalizeDataset } from '../src/data/normalize.js';
+import { runBacktest } from '../src/engine/run.js';
+const count=Number(process.argv[2]??240000);
+const start=performance.now();const raw=syntheticInput(count);const spec=syntheticSpec(raw);
+const generated=performance.now();const dataset=normalizeDataset(raw);const prepared=performance.now();
+raw.bars=[];
+const session=new Session();session.connect();await session.post('Profiler.enable');await session.post('Profiler.start');
+let gcMs=0;const observer=new PerformanceObserver(list=>{for(const e of list.getEntries())gcMs+=e.duration;});observer.observe({entryTypes:['gc']});
+const before=performance.now();const result=runBacktest(dataset,spec);const elapsed=performance.now()-before;
+const {profile}=await session.post('Profiler.stop');session.disconnect();
+await new Promise(resolve=>setImmediate(resolve));observer.disconnect();
+await mkdir('benchmark-output',{recursive:true});await writeFile(`benchmark-output/profile-${count}.cpuprofile`,JSON.stringify(profile));
+const nodes=new Map(profile.nodes.map(n=>[n.id,n]));const hits=new Map<string,number>();
+for(const id of profile.samples??[]){const f=nodes.get(id)!.callFrame;const key=`${f.functionName} ${f.url.split('/').slice(-2).join('/')}:${f.lineNumber+1}`;hits.set(key,(hits.get(key)??0)+1);}
+const report={bars:count,generationMs:generated-start,normalizeMs:prepared-generated,runMs:elapsed,timing:result.timing,fillCount:result.metrics.fillCount,finalEquity:result.metrics.finalEquity,peakRssMiB:process.resourceUsage().maxRSS/1024,gcMs,top:[...hits].sort((a,b)=>b[1]-a[1]).slice(0,25)};
+await writeFile(`benchmark-output/baseline-${count}.json`,JSON.stringify(report,null,2));process.stdout.write(JSON.stringify(report,null,2)+'\n');

@@ -1,0 +1,11 @@
+{
+  "feature": "prediction",
+  "from": 1704159000000,
+  "to": 1704697200001,
+  "horizonBars": 1,
+  "groups": 3,
+  "minSamples": 3,
+  "maxRows": 100000,
+  "maxPeriods": 10000,
+  "maxRuntimeMs": 30000
+}

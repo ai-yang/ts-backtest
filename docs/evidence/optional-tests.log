@@ -1,0 +1,18 @@
+✔ parquet: real writer → explicit mappings → core dataset and ledger equivalence (711.296102ms)
+✔ parquet: floating-point prices are rejected rather than silently rounded (23.058812ms)
+✔ arrow: real writer → explicit mappings → core dataset and ledger equivalence (504.381678ms)
+✔ arrow: floating-point prices are rejected rather than silently rounded (8.667151ms)
+✔ xlsx: real writer → explicit mappings → core dataset and ledger equivalence (447.776198ms)
+✔ xlsx: floating-point prices are rejected rather than silently rounded (8.856004ms)
+✔ optional formats require explicit trusted host configuration (5.023367ms)
+✔ XLSX sheet choice is explicit and formula cached values are rejected (23.070615ms)
+✔ Parquet GZIP pages decode within the expanded-byte budget (16.88522ms)
+✔ XLSX directory expansion limits and inconsistent member lengths fail before workbook parsing (8.757108ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2363.471895

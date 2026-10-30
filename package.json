@@ -1,0 +1,63 @@
+{
+  "name": "ts-backtest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic TypeScript bar backtesting engine with CLI and MCP adapters",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "test:contracts": "npm run build && node --test dist/test/contracts.test.js",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "cli": "node dist/src/adapters/cli.js",
+    "mcp": "node dist/src/adapters/mcp.js",
+    "package": "npm run build && node scripts/package.mjs",
+    "package:core": "npm run build && node scripts/package.mjs --core-only",
+    "test:optional": "npm run build && node --test optional-formats/test/*.test.mjs",
+    "test:package": "node scripts/smoke-package.mjs",
+    "benchmark": "npm run build && node scripts/benchmark.mjs",
+    "benchmark:quick": "npm run build && node scripts/benchmark.mjs --quick"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "csv-parse": "7.0.3",
+    "decimal.js": "10.6.0",
+    "yaml": "2.9.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./runtime": {
+      "types": "./dist/src/runtime/manager.d.ts",
+      "import": "./dist/src/runtime/manager.js"
+    },
+    "./schema": "./dist/package/ts-backtest/schemas/backtest.schema.json"
+  },
+  "bin": {
+    "ts-backtest": "./dist/src/adapters/cli.js",
+    "ts-backtest-mcp": "./dist/src/adapters/mcp.js"
+  },
+  "license": "MIT",
+  "author": "Rui (ai-yang)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-yang/ts-backtest.git"
+  },
+  "homepage": "https://github.com/ai-yang/ts-backtest#readme",
+  "bugs": {
+    "url": "https://github.com/ai-yang/ts-backtest/issues"
+  }
+}

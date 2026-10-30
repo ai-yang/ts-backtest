@@ -1,0 +1,26 @@
+
+> @zwork/backtest@0.1.0 test:optional
+> npm run build && node --test optional-formats/test/*.test.mjs
+
+
+> @zwork/backtest@0.1.0 build
+> tsc -p tsconfig.json
+
+✔ parquet: real writer → explicit mappings → core dataset and ledger equivalence (394.299027ms)
+✔ parquet: floating-point prices are rejected rather than silently rounded (4.31587ms)
+✔ arrow: real writer → explicit mappings → core dataset and ledger equivalence (336.085666ms)
+✔ arrow: floating-point prices are rejected rather than silently rounded (5.0087ms)
+✔ xlsx: real writer → explicit mappings → core dataset and ledger equivalence (344.369664ms)
+✔ xlsx: floating-point prices are rejected rather than silently rounded (6.01051ms)
+✔ optional formats require explicit trusted host configuration (3.647764ms)
+✔ XLSX sheet choice is explicit and formula cached values are rejected (19.388553ms)
+✔ Parquet GZIP pages decode within the expanded-byte budget (6.224365ms)
+✔ XLSX directory expansion limits and inconsistent member lengths fail before workbook parsing (4.272079ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1395.724946

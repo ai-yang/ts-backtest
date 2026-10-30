@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import { readFile, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+const directory = resolve(import.meta.dirname, '../docs/evidence');
+const status=JSON.parse(await readFile(resolve(directory,'codex-smoke-status.json'),'utf8'));
+assert.equal(status.exitCode,0);assert.equal(status.timedOut,false);
+const events=(await readFile(resolve(directory,'codex-smoke.jsonl'),'utf8')).trim().split('\n').map(line=>JSON.parse(line));
+const calls=events.filter(e=>e.type==='item.completed'&&e.item.type==='mcp_tool_call').map(e=>e.item);
+const tools=['backtest_capabilities','backtest_prepare_data','backtest_validate','backtest_run','backtest_job','backtest_result','backtest_explain'];
+for(const tool of tools)assert.ok(calls.some(c=>c.tool===tool),`Missing actual ${tool} call`);
+for(const call of calls){assert.equal(call.server,'backtest');assert.equal(call.status,'completed');assert.equal(call.error,null);assert.equal(call.result.structured_content.ok,true);}
+const data=call=>call.result.structured_content.data;
+const summary=data(calls.find(c=>c.tool==='backtest_result'&&c.arguments.table==='summary')).rows[0];
+assert.equal(summary.metrics.finalEquity,'1100.00');assert.equal(summary.metrics.netProfit,'100.00');assert.equal(summary.metrics.fillCount,2);
+const pages=calls.filter(c=>c.tool==='backtest_result'&&c.arguments.table==='fills');
+assert.equal(pages.length,2);assert.equal(pages[1].arguments.cursor,data(pages[0]).nextCursor);
+const fills=pages.flatMap(c=>data(c).rows);assert.equal(new Set(fills.map(f=>f.id)).size,2);
+assert.deepEqual(fills.map(f=>[f.side,f.quantity,f.price]),[['buy',100,'10'],['sell',100,'11']]);
+const explanations=calls.filter(c=>c.tool==='backtest_job').map(data).filter(j=>j.kind==='explain'&&j.state==='succeeded');
+assert.equal(explanations.length,1);
+assert.equal(explanations[0].result.explanation.selectedFill.id,fills[0].id);
+assert.equal(explanations[0].result.explanation.selectedFill.fees.total,'0.00');
+assert.ok(explanations[0].result.explanation.ledgerEvents.rows.some(e=>e.fillId===fills[0].id));
+const evidence={passed:true,verifiedFrom:'actual completed MCP tool outputs, independently of model final text',toolNames:tools,completedCalls:calls.length,runId:pages[0].arguments.runId,finalEquity:summary.metrics.finalEquity,fillIds:fills.map(f=>f.id),sameConnection:true,at:new Date().toISOString()};
+await writeFile(resolve(directory,'codex-smoke-verified.json'),JSON.stringify(evidence,null,2));
+process.stdout.write(JSON.stringify(evidence)+'\n');

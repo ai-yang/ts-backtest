@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "1",
+  "createdAt": "2026-10-29T17:56:29.213Z",
+  "sourceTreeSha256": "5463754d5c312f5ac4ec4bde4a537205f2b803933a0c6cd4583d65867854c15e",
+  "sourceFiles": {
+    "src/accounting/ledger.ts": "fde666db9b86c36466d90ad0361d728e45605c36b1b64c0d58fab0e92ca1a959",
+    "src/adapters/capabilities.ts": "a3c37e156e84c48d8d012d130fe6c3b26fee24d999113e73e2832c545ad76db5",
+    "src/adapters/cli.ts": "a25985a8aea01440f6bf3a735bba49810a9a66410cc5f7356544ab6b423b9465",
+    "src/adapters/mcp.ts": "9f4e67f9fecc824140ac75c99c64bc4914e9be681e22c60db3bd767245fd6d21",
+    "src/adapters/templates.ts": "919aa4f17f28f5ebb61d255da400e08b9d71f273544beea628d37bb34d1a4ade",
+    "src/analytics/equity-statistics.ts": "3fe2611081afdbb7c564fb0a291d0e0c2b9c0e35ef028e1884bce85affb393a4",
+    "src/analytics/metrics.ts": "b4f91d8ec030d49ad2b534a733a7a807df97a52e9d676a9e193a2f2bd8ca41c3",
+    "src/analytics/numeric.ts": "59eb310e7437e654efb5dc2c6e5c2ada5f6ea39ac5fdd4349d03767ab30011e6",
+    "src/data/frames.ts": "96e752db9b0e67329870590b56c1a73c79b658676eec660bf36fe4cf32898250",
+    "src/data/import.ts": "eb487200bb7e46462796f4eaca5cdee2368aeca7ebfa8012aa7e3f1360082eb0",
+    "src/data/normalize.ts": "19f6fd7837ece8d6eddeb5b4253f68e28768843dabd791caac5e1e76a3c6e19d",
+    "src/data/serialize.ts": "00cb3f483c034aa136b802b5a14cba30113d07df2797a8cfffd3d6c2a2102e1d",
+    "src/engine/clock.ts": "63cad70a506839098396dbecde66d6a0982772f3e8494c035d80cd4542ea82b7",
+    "src/engine/run.ts": "fd5d14fa32528cee616f5c8988885f69abea4cd079333a2fe687e38475acb5ee",
+    "src/index.ts": "4c597dcba7d9362cd9148d113dc444cec69c28b0bb1e2936948352de268c3865",
+    "src/reports/html.ts": "fd2552ea3256c895f2eb11e12753b1f0b4cceefc43ae0aee34bb07b518b33208",
+    "src/research/factors.ts": "00aab2b570b28937c302dc136b7ab4904cfe81bcaa68f9076f9af6a6580c747c",
+    "src/research/sweep.ts": "86fc13333781d815d2199e68af53dccaa81d756ab1c7f595ae538a2db33f4b29",
+    "src/research/walk-forward.ts": "6edc747e2b40ccba9271e1d4093544eed1d10d6f9e9e8496b4c4a0be7651ccdd",
+    "src/research/worker.ts": "f4f1ce7772ba5883e8b3920429f0830ead6e898a381bee7e9f001f20960b6f02",
+    "src/runtime/manager.ts": "6c10126a39dd4bf4f499f3580daef93f36f4568dc6a2efabddefee718e65a87a",
+    "src/runtime/paths.ts": "60bfde3fbcce88b9973afbfcd188558481ae082e72c2861737d4c3b4463a6944",
+    "src/runtime/research-results.ts": "261e35a63f45fa0ab925cda0ad33f4afe7b73703ec12c0d69e8ede40a9ac3572",
+    "src/runtime/results.ts": "bd065f9801bf59a947ddcfcf17e73a41155db80dbee3b4a7ad75956282c20f03",
+    "src/runtime/worker.ts": "61d9d4428720ce8d81cc7e5029c24227956a04ec78a287af342ba38e6558c126",
+    "src/spec/canonical.ts": "7ea9a767ba84b7db464302cb6f2cc1b6b4d88b02a02fbc969a60b3d44ac58798",
+    "src/spec/decimal.ts": "15a370573ab39b52808d540366725150d29e354df673d994c185e5de7733f754",
+    "src/spec/errors.ts": "36a84dd7e319d2ccd410a2a0c775fe36fc41230ace10432b1fe863a95fc97afb",
+    "src/spec/schema.ts": "854eb27fe36c146a9bc3977fab103aa7e1d718bdd295da663836c029003cb1e4",
+    "src/spec/types.ts": "b36141830436ae171e9639f9610d02a33a8e6c3fee7a905327fd28ce8dbfb08e",
+    "src/spec/validate.ts": "001b0b3cc73745a0df8a1b482d5fc4e054b5d926755d87efb2e93fc1d21c7256",
+    "src/strategy/evaluator.ts": "cc50a40c042d07b74e8654671d85515759b0f564336c7da279d113be481ce7c5",
+    "src/strategy/index.ts": "ae53132b732471dd097d6806e02f8c1ae4cddc6ac7a5476b572e4ab4308b2315",
+    "src/strategy/indicators.ts": "094d470551181685954935f1135903a20039f678008d9f1f563d381010fe6fe5"
+  },
+  "sourceLockSha256": "78c3b7aebe7c9009cc30f2f2b3efe618b47b61ea2f7bfcab72a41eb87b53f8c7",
+  "optionalLockSha256": "d340068444b44ee40d9c7e804c5a2f9f45adc8c66afd092346c67623fb6d94a6",
+  "environment": {
+    "node": "v24.18.0",
+    "os": "7.0.0-31-generic",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 7 5800H with Radeon Graphics"
+  },
+  "gates": {
+    "coreTests": {
+      "count": 232,
+      "passed": 232
+    },
+    "optionalTests": {
+      "count": 10,
+      "passed": 10
+    },
+    "typecheck": "passed",
+    "productionPackage": {
+      "testedAt": "2026-10-29T17:56:03.979Z",
+      "results": [
+        {
+          "researchCliAndDemo": "passed",
+          "reportCliAndMcp": "passed",
+          "mcpToolCount": 12,
+          "asynchronousValidation": "passed",
+          "node": "v24.18.0",
+          "platform": "linux-x64",
+          "cli": "passed",
+          "sdkAndResearchWorker": "passed",
+          "optionalFormats": [
+            "parquet",
+            "arrow",
+            "xlsx"
+          ],
+          "mcpAndRuntimeWorker": "passed",
+          "network": "blocked",
+          "path": "empty",
+          "installedRuntimeDependencies": 0
+        },
+        {
+          "researchCliAndDemo": "passed",
+          "reportCliAndMcp": "passed",
+          "mcpToolCount": 12,
+          "asynchronousValidation": "passed",
+          "node": "v22.23.4",
+          "platform": "linux-x64",
+          "cli": "passed",
+          "sdkAndResearchWorker": "passed",
+          "optionalFormats": [
+            "parquet",
+            "arrow",
+            "xlsx"
+          ],
+          "mcpAndRuntimeWorker": "passed",
+          "network": "blocked",
+          "path": "empty",
+          "installedRuntimeDependencies": 0
+        }
+      ],
+      "declarations": "passed without installed Zod/Decimal runtime dependency types; Node types supplied by consumer development environment",
+      "verifiedUnpackedBytes": {
+        "core": 5328765,
+        "optional": 821168
+      },
+      "untested": [
+        "Windows",
+        "macOS",
+        "Bun"
+      ],
+      "note": "Production files were extracted outside the repository and ran with empty PATH, empty NODE_PATH and network calls blocked. Node executables are supplied separately."
+    },
+    "codex": {
+      "passed": true,
+      "verifiedFrom": "actual completed MCP tool outputs and on-disk report hashes, independently of model final text",
+      "toolNames": [
+        "backtest_capabilities",
+        "backtest_prepare_data",
+        "backtest_validate",
+        "backtest_run",
+        "backtest_job",
+        "backtest_result",
+        "backtest_explain",
+        "backtest_sweep",
+        "backtest_walk_forward",
+        "backtest_factors",
+        "backtest_study",
+        "backtest_report"
+      ],
+      "completedCalls": 24,
+      "sameConnection": true,
+      "serverSha256": "dad1dfbbacf6c7956ef9929a5d98580515b796ab3655abd2914d4ebda7ec63c4",
+      "runId": "run_e5acaaa4-120b-4294-ba72-e4df3edad64c",
+      "finalEquity": "1042.00",
+      "reportSha256": "b596801837acc5b0bc61ace7877501d2deb788ab29ebda74851d30c932a667d6",
+      "sweepStudyId": "study_63fa01e6-6230-4821-83dc-7d542f8b5454",
+      "walkForwardStudyId": "study_759a5d08-a385-4adc-bd32-36e748eb9c73",
+      "factorStudyId": "study_b9358fda-88ca-42bb-9d47-dda82aa4ea1c",
+      "assertions": [
+        "exact synthetic ledger gold",
+        "stable fill and study pagination",
+        "linked fill explanation",
+        "HTML artifact integrity",
+        "two real candidate runs",
+        "three OOS windows and one account initial event",
+        "real factor diagnostic rows"
+      ],
+      "at": "2026-10-29T17:56:29.167Z"
+    },
+    "benchmarks": {
+      "completeWorkloadCases": 14,
+      "finalRevisionHotCases": 4,
+      "samplesPerNormalStage": 5
+    }
+  },
+  "packages": [
+    {
+      "name": "backtest",
+      "archive": "dist/package/backtest-0.1.0.tgz",
+      "archiveBytes": 1221391,
+      "unpackedBytes": 5328765,
+      "fileCount": 325,
+      "bundledJavascriptBytes": 4068049,
+      "sha256": "5e8e6ac6c0b3c1edd11ba7b012be41e94c09d46f5ad949fb24c23a8215629b4f"
+    },
+    {
+      "name": "backtest-optional-formats",
+      "archive": "dist/package/backtest-optional-formats-0.1.0.tgz",
+      "archiveBytes": 279541,
+      "unpackedBytes": 821168,
+      "fileCount": 7,
+      "bundledJavascriptBytes": 776568,
+      "sha256": "ad69bbe147309b052e6ed882ca3496042f4d4553b413b27259981e7c0dee908c"
+    }
+  ],
+  "evidence": {
+    "testLogSha256": "5989dd2084c81fb4d86b7a130e07d8ec886a5c3e101c8cde83c1e0d1f3b8811c",
+    "optionalTestLogSha256": "840b81ad24e674a6819f792231e802de83984e59484aa069d537ee835fa8b5db",
+    "benchmarkSha256": "ed0041944a27f7c74be68923dc118e613a35f2679b5c67e03c986f941ae0289b",
+    "finalHotBenchmarkSha256": "cdaea8695e5a48c3dc8dc549d9b0c8fc329e7f71af40f038050c24bb296dfea1"
+  },
+  "commands": [
+    "npm test",
+    "npm run check",
+    "npm run test:optional",
+    "node scripts/benchmark.mjs --samples=5",
+    "npm run package",
+    "npm run test:package",
+    "node scripts/codex-package-smoke.mjs",
+    "node scripts/verify-codex-package-smoke.mjs",
+    "node scripts/release-evidence.mjs"
+  ],
+  "limitations": [
+    "Synthetic engineering fixtures; no real-user strategy coverage claim",
+    "Linux x64 Node 22/24 verified; Windows/macOS/Bun unverified",
+    "zwork host source unavailable and outside this acceptance; actual Codex MCP used as requested",
+    "Performance measurements use stated fixture, output mode, phase and revision; see PERFORMANCE.md"
+  ]
+}

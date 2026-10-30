@@ -1,0 +1,9 @@
+{
+  "space": { "/strategy/rules/0/action/value": [1, 2, 3] },
+  "objective": { "metric": "netProfit", "direction": "maximize" },
+  "seed": 42,
+  "concurrency": 2,
+  "maxCandidates": 100,
+  "maxTotalBars": 1000000,
+  "maxRuntimeMs": 30000
+}
