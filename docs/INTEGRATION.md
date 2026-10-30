@@ -2,8 +2,6 @@
 
 This document describes the implemented SDK, CLI, and stdio MCP interfaces. It is not a proposed API. Stage 1–3 gates passed; Stage 4 functionality has executable engine, research, native-frame, optional-format, and report tests. The current full-suite and final-release evidence are tracked in [PROGRESS.md](PROGRESS.md) and [ACCEPTANCE.md](ACCEPTANCE.md); a prior test or bundle report does not certify a later changed build.
 
-The user explicitly substituted **Codex verification for unavailable zwork source verification**. zwork integration is outside this task's acceptance scope. The research report's zwork timeout, lifecycle, assets, and financial snapshot assumptions were not independently verified and are not claimed as Codex constraints.
-
 ## Verified client evidence
 
 The Stage 3 real Codex connection completed **11 calls across all seven original tools**, with exact synthetic final equity `1100.00`, profit `100.00`, and distinct paginated fill IDs. Evidence was verified from completed tool outputs, independently of the model's final prose:
@@ -31,7 +29,6 @@ All adapters use the same specification, validation, event engine, exact account
 | CLI | JSON/YAML configuration, local imports, validation, synchronous run/research completion, file output | Does not exit with an unowned background job. |
 | stdio MCP | Strict JSON inputs, discovery, structured error envelopes, jobs, bounded queries, artifact handles | Does not evaluate model-written JavaScript or fetch market data. |
 | Codex | Connects to the ordinary stdio MCP server | No separate Codex-specific execution semantics. |
-| Future zwork adapter | Not implemented or verified in this scope | Would supply authorized snapshot export and host lifecycle/permission mapping. |
 
 Developer commands that exist today:
 
@@ -129,5 +126,3 @@ Retained datasets, plans, runs, and studies share a serialized-commit quota, def
 | Actual Codex | Stage 3 seven-tool transcript; Stage 4 [packaged 12-tool verifier](evidence/codex-package-smoke-verified.json) and transcript above | Passed 24 calls in one connection; real host evidence remains distinct from official SDK transport evidence. |
 
 Recorded package smoke coverage is Linux x64 on Node 22 and Node 24. Windows, macOS, and Bun remain unverified and are not silently included in the tested support matrix. The final build is re-packaged and re-tested after source changes. Performance claims require the measured final workload report, not the historical 34-line benchmark or the design's unmeasured two-second target.
-
-A future zwork integration would separately verify its manifest syntax, bundled runtime, process lifetime, timeout/concurrency rules, asset whitelist, expert-tool exposure, authorized snapshot export, and result access. That future checklist does not block the Codex-substituted scope completed here.
